@@ -1,0 +1,7 @@
+{
+  "name": "triangulo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

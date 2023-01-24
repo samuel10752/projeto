@@ -1,0 +1,7 @@
+{
+  "name": "imc_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

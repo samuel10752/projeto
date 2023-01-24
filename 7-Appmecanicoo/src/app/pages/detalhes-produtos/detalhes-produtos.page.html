@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaulHref = ""></ion-back-button>
+      </ion-buttons>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img id="img_1" src="{{img_1}}"></ion-img>
+  
+  <p>Dados do Serviço</p>
+
+  <ion-item *ngIf="!modoDeEdicao" >{{produtoselecionado.nome}}</ion-item>
+  <ion-item *ngIf="!modoDeEdicao" >R$: {{produtoselecionado.valor}}</ion-item>
+  <ion-item *ngIf="!modoDeEdicao" >Garantia: {{produtoselecionado.garantia}} meses</ion-item>
+
+  <ion-button color="dark" shape="round" *ngIf="!modoDeEdicao" (click)="iniciarEdicao()" id="button" >Alterar Dados</ion-button>
+  
+  <ion-fab id="icon" vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button color="danger" (click)="deletarServico()" routerLink="/listagem-produtos/">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <form *ngIf="modoDeEdicao" (ngSubmit)="encerrarEdicao()" >
+  
+    <ion-item>
+      <ion-label position="floating">Nome{{produtoselecionado.nome}}:</ion-label>
+      <ion-input [(ngModel)]="produtoselecionado.nome" name="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">R$ {{produtoselecionado.valor}}:</ion-label>
+      <ion-input [(ngModel)]="produtoselecionado.valor" name="valor" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Garantia {{produtoselecionado.garantia}} meses:</ion-label>
+      <ion-input [(ngModel)]="produtoselecionado.garantia" name="garantia"></ion-input>
+    </ion-item>
+
+    
+    <ion-button color="dark" shape="round" routerLink="/listagem-produtos/" type="submit" id="salvar">Salvar</ion-button>
+  </form>
+
+
+</ion-content>
